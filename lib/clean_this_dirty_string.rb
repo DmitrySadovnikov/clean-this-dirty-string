@@ -23,10 +23,16 @@ module CleanThisDirtyString
         when /[\；]/ then ';'
         when /[\＜]/ then '<'
         when /[\＞]/ then '>'
+        when /[\ ]/ then ' '
+        when /[\₽]/ then 'Р'
         else ''
         end
       end
 
     result.join('')
+  end
+
+  def diff(string)
+    string.split('') - clean!(string).split('')
   end
 end
