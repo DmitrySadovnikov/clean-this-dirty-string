@@ -7,4 +7,11 @@ Gem::Specification.new do |s|
     'lib/clean_this_dirty_string.rb'
   ]
   s.require_paths = ['lib']
+  s.authors       = ['Dmitry Sadovnikov']
+  s.email         = ['sadovnikov.js@gmail.com']
+  s.homepage      = 'https://github.com/DmitrySadovnikov/clean-this-dirty-string'
+
+  s.add_development_dependency 'bundler'
+  s.add_development_dependency 'minitest'
+  s.add_development_dependency 'pry'
 end
