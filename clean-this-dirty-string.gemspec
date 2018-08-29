@@ -1,17 +1,24 @@
-Gem::Specification.new do |s|
-  s.name          = 'clean-this-dirty-string'
-  s.version       = '0.0.2'
-  s.date          = '2018-08-28'
-  s.summary       = 'It cleans your dirty string'
-  s.files         = `git ls-files -z`.split("\x0").reject do |f|
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'clean_this_dirty_string/version'
+
+Gem::Specification.new do |spec|
+  spec.name          = 'clean-this-dirty-string'
+  spec.version       = CleanThisDirtyString::VERSION
+  spec.date          = '2018-08-28'
+  spec.summary       = 'It cleans your dirty string'
+  spec.authors       = ['Dmitry Sadovnikov']
+  spec.email         = ['sadovnikov.js@gmail.com']
+  spec.homepage      = 'https://github.com/DmitrySadovnikov/clean-this-dirty-string'
+  spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
   end
-  s.require_paths = ['lib']
-  s.authors       = ['Dmitry Sadovnikov']
-  s.email         = ['sadovnikov.js@gmail.com']
-  s.homepage      = 'https://github.com/DmitrySadovnikov/clean-this-dirty-string'
+  spec.bindir        = 'exe'
+  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.require_paths = ['lib']
 
-  s.add_development_dependency 'bundler'
-  s.add_development_dependency 'minitest'
-  s.add_development_dependency 'pry'
+  spec.add_development_dependency 'bundler', '~> 1.14'
+  spec.add_development_dependency 'minitest', '~> 5.0'
+  spec.add_development_dependency 'pry'
+  spec.add_development_dependency 'rake', '~> 10.0'
 end
