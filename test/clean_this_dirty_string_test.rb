@@ -28,4 +28,10 @@ class CleanThisDirtyStringTest < MiniTest::Test
     result     = CleanThisDirtyString.diff(bad_string)
     assert result == %w[“ »]
   end
+
+  def test_bad_letters
+    bad_string = 'Филиал Центральный ООО "ДНС Ритейл"'
+    result     = CleanThisDirtyString.clean!(bad_string)
+    assert result == 'Филиал Центральный ООО "ДНС Ритейл"'
+  end
 end

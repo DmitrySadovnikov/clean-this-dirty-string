@@ -2,7 +2,7 @@ module CleanThisDirtyString
   module_function
 
   def clean!(string)
-    chars  = string.split('')
+    chars  = replace_bad_chars(string).split('')
 
     result =
       chars.map do |char|
@@ -34,5 +34,9 @@ module CleanThisDirtyString
 
   def diff(string)
     string.split('') - clean!(string).split('')
+  end
+
+  def replace_bad_chars(string)
+    string.gsub('й', 'й')
   end
 end
